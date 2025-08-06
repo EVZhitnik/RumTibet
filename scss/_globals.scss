@@ -1,0 +1,64 @@
+@use 'helpers' as *;
+
+html {
+    &.is-lock {
+        overflow: hidden
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-family-base);
+    font-size: rem(14);
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+h1, .h1 {
+    @include fluid-text(50, 28);
+
+    font-weight: 700;
+    font-family: var(--font-family-accent);
+    letter-spacing: 0.02em;
+    color: var(--color-light);
+}
+
+h2, .h2 {
+    @include fluid-text(32, 24);
+    
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+h3, .h3 {
+    @include fluid-text(24, 20);
+
+    font-weight: 700;
+    line-height: 1.33;
+}
+
+h4, .h4 {
+    font-weight: 700;
+    font-size: rem(18);
+    line-height: 1.11;
+    letter-spacing: 0.01em;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+    @include transition(color, background-color, opacity, box-shadow);
+}
+
+a {
+    color: inherit;
+
+    &[class] {
+        text-decoration: none;
+    }
+}

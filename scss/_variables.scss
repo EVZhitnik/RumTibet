@@ -9,8 +9,12 @@
     --color-light-green: #F3F5F4;
     --color-dark-green: #1A3E3E;
     --color-yellow: #F2BE22;
-    --color-dark-40: #666666;
     --color-menu: #FDFDFD;
+    --color-menu-keyframes: rgba(185, 185, 185, 0.9);
+    --color-form-field: #E1E3E4;
+
+    --border-button: #{rem(1)} solid var(--color-dark-green);
+    --border-radius: #{rem(4)};
 
     --shadow: 0 0 #{rem(15)} 0 rgba(24, 18, 30, 0.12);
 
@@ -19,4 +23,6 @@
 
     --container-width: #{rem(1180)};
     --container-padding-x: #{rem(16)};
+
+    --transition-duration: 0.2s;
 }

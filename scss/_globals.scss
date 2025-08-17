@@ -16,7 +16,7 @@ body {
 }
 
 h1, .h1 {
-    @include fluid-text(50, 28);
+    @include fluid-text(50, 26);
 
     font-weight: 700;
     font-family: var(--font-family-accent);
@@ -52,7 +52,7 @@ input,
 textarea,
 select,
 svg * {
-    @include transition(color, background-color, opacity, box-shadow);
+    transition-duration: var(--transition-duration);
 }
 
 a {
@@ -60,5 +60,9 @@ a {
 
     &[class] {
         text-decoration: none;
+    }
+
+    @include hover {
+        text-decoration: underline;
     }
 }

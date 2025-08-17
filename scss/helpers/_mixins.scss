@@ -23,9 +23,7 @@
 @mixin flexbox(
     $isInline: true,
     $justify: flex-start,
-    $align: stretch,
-    $direction: row,
-    $wrap: nowrap
+    $align: stretch
 ) {
     @if $isInline {
         display: flex;
@@ -33,8 +31,6 @@
         display: inline-flex;
     }
     
-    flex-direction: $direction;
-    flex-wrap: $wrap;
     justify-content: $justify;
     align-items: $align;
 }

@@ -1,0 +1,23 @@
+@use 'helpers' as *;
+
+.hero-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(24);
+    padding: rem(40) rem(42);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: rem(10);
+    backdrop-filter: blur(rem(2));
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+
+    @include mobile-s {
+        padding: rem(10);
+    }
+}

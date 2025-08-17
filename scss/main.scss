@@ -4,6 +4,12 @@
 @use 'utils';
 @use 'globals';
 
+@use 'blocks/hero.scss';
+@use 'blocks/header.scss';
+@use 'blocks/button.scss';
+@use 'blocks/burger-button.scss';
+@use 'blocks/hero-form.scss';
+@use 'blocks/field.scss';
 
 // .header,
 // main > *:not(:last-child),

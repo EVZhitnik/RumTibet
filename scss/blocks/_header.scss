@@ -1,0 +1,136 @@
+@use 'helpers' as *;
+
+.header {    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation-name: scrolling-header;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: rem(100) rem(200);
+    padding: rem(16) rem(10);
+
+    @keyframes scrolling-header {
+        to {
+            box-shadow: 0 0 1rem 0 var(--color-dark);
+            background-color: var(--color-menu-keyframes);
+        }
+    }
+
+    @include mobile {
+        padding-block: rem(10);
+    }
+    
+    &__inner {
+        @include flexbox(true, space-between, center);
+
+        column-gap: rem(30);
+    }
+
+    &__logo {
+        svg {
+
+            @include mobile {
+                width: rem(85);
+            }
+
+            path {
+                transition-duration: var(--transition-duration);
+
+                &:nth-child(1) {
+                    fill: var(--color-light);
+                }
+
+                &:nth-child(2) {
+                    fill: var(--color-menu);
+                }
+            }
+
+            @include hover {
+                path {
+                    fill: var(--color-dark-green);
+                }  
+            } 
+        }
+    }
+
+    &__overlay {
+        display: flex;
+        align-items: center;
+        column-gap: rem(49);
+        transition-duration: var(--transition-duration);
+
+        @include mobile {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 3rem;
+            padding: rem(55) 1rem;
+            background-color: var(--color-dark-green);
+
+            &:not(.is-active) {
+               @include hide;
+               
+               translate: 100%;
+            }
+        }
+    }
+
+    &__menu {
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(5) rem(24);
+
+            @include mobile {
+                flex-direction: column;
+                row-gap: rem(16);
+            }
+        }
+
+        &-item {
+            $icon-default: url('../icon/arrow-right.svg') center/contain no-repeat;
+            $icon-hover: url('../icon/arrow-right-yellow.svg') center/contain no-repeat;
+
+            position: relative;
+            color: var(--color-light);
+            cursor: pointer;
+
+            @include mobile {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: rem(5);
+                    left: 0;
+                    width: rem(6);
+                    height: rem(10);
+                    background: $icon-default;
+                    transition-duration: var(--transition-duration);
+                }
+            }
+
+            @include hover {
+                &::before {
+                    background: $icon-hover;
+                }
+            }
+        }
+
+        &-link {
+            @include fluid-text(18, 14);
+
+            font-weight: 600;
+
+            @include mobile {
+                padding-left: rem(20);
+                font-weight: 400;
+            }
+
+            @include hover {
+                color: var(--color-yellow);
+            }
+        }
+    }
+}

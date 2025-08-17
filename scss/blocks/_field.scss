@@ -1,0 +1,112 @@
+@use 'helpers' as *;
+
+.field {
+    display: grid;
+    row-gap: rem(8);
+
+    &__custom {
+        &-select {
+            position: relative;
+            border: rem(1) solid var(--color-form-field);
+            border-radius: rem(8);
+            
+            &::after {
+                @include abs-position(vertical);
+                @include square(rem(15));
+                
+                content: '';
+                right: rem(16);
+                pointer-events: none; 
+            }
+
+            &--arrow::after {
+                background: url('../icon/arrow-form.svg') center/contain no-repeat;       
+            }
+        }
+    }
+    
+    &__select {
+        width: 100%;
+        font-weight: 700;
+        font-size: rem(16);
+        color: var(--color-menu);
+        padding: rem(14) rem(16);
+        background-color: transparent;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        
+        option {
+            color: var(--color-dark);
+        }
+
+        &:focus-visible {
+            outline: rem(1) dashed var(--color-light);
+            outline-offset: rem(2);
+            transition-duration: 0s !important;
+        }
+
+        &::-ms-expand {
+            display: none;
+        } 
+    }
+
+    &__calendar {
+        display: flex;
+        border: rem(1) solid var(--color-form-field);
+        border-radius: rem(8);
+
+        @include tablet {
+            justify-content: space-between;
+        }
+    }
+
+    &__input {
+        flex-grow: 1;
+        width: 100%;
+        font-weight: 700;
+        font-size: rem(16);
+        color: var(--color-menu);
+        border: none;
+        background: transparent;
+        padding: rem(15) rem(16);
+        
+        &::placeholder {
+            color: var(--color-menu);
+            opacity: 1;
+        }
+
+        &:focus-visible {
+            outline: rem(1) dashed var(--color-light);
+            outline-offset: rem(2);
+            transition-duration: 0s !important;
+        }
+    }
+
+    &__button {
+        @include flexbox(true, center, center);
+
+        flex-shrink: 0;
+        background: transparent;
+        border: none;
+        padding: 0;
+        padding-inline: rem(16);
+        cursor: pointer;
+        
+        &:focus-visible {
+            outline: none;
+        }
+    } 
+
+    &__icon {
+        width: rem(15);
+        height: rem(15);
+        background: url('../icon/calendar-form.svg') center/contain no-repeat;
+    }
+
+    &__help {
+        color: var(--color-menu);
+    }
+}

@@ -1,0 +1,46 @@
+@use 'helpers' as *;
+
+.button {
+    @include flexbox(true, center, center);
+
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    color: var(--color-light);
+    background-color: var(--color-dark-green);
+    border-radius: var(--border-radius);
+    border: rem(1) solid transparent;
+
+    @include hover {
+        color: var(--color-dark-green);
+        background-color: var(--color-light);
+        border: var(--border-button);
+        text-decoration: none;
+    }
+
+    &--header {
+        padding: rem(12) rem(24);
+        
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &--form {
+        background-color: var(--color-menu);
+        color: var(--color-dark-green);
+        align-self: start;
+        padding: rem(16) rem(36);
+
+        @include tablet {
+            justify-self: start;
+        }
+
+        @include hover {
+            background-color: var(--color-dark-green);
+            color: var(--color-menu);
+            border: rem(1) solid var(--color-light);
+        }
+    }
+}

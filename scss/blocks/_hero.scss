@@ -1,0 +1,17 @@
+@use 'helpers' as *;
+
+.hero {
+    background: url('/img/hero/hero-bg.jpg') center/cover no-repeat;
+
+    &__body {
+        display: grid;
+        row-gap: rem(41);
+        padding-top: rem(551);
+        padding-bottom: rem(82);
+
+        @include mobile {
+            padding-top: rem(298);
+            padding-bottom: rem(50);
+        }
+    }
+}

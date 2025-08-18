@@ -117,6 +117,66 @@
                 </div>
             </div>
         </section>
+        <section class="tour" aria-labelledby="tour-title">
+            <div class="tour__inner container" data-js-container>
+                <div class="tour__media">
+                    <div class="tour__active">
+                        <img class="tour__image" src="./img/tour/tour-bg-1.jpg" alt="" width="350" height="400">
+                        <button 
+                            class="tour__button" 
+                            type="button" 
+                            aria-label="Play video" 
+                            title="Play video" 
+                            data-js-button-play-video
+                        >
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="50" height="50" rx="25" fill="#FDFDFD" fill-opacity="0.6"/>
+                                <path d="M22.2427 17.6557C21.9639 17.4965 21.6482 17.4132 21.3271 17.4143C21.0061 17.4154 20.691 17.5008 20.4133 17.6619C20.1356 17.823 19.9051 18.0542 19.7448 18.3324C19.5845 18.6106 19.5001 18.926 19.5 19.247V30.7549C19.5001 31.0759 19.5845 31.3913 19.7448 31.6695C19.9051 31.9477 20.1356 32.1789 20.4133 32.34C20.691 32.5012 21.0061 32.5865 21.3271 32.5876C21.6482 32.5887 21.9639 32.5055 22.2427 32.3462L32.3113 26.5914C32.5917 26.431 32.8248 26.1993 32.9869 25.9199C33.1489 25.6404 33.2343 25.3231 33.2343 25C33.2343 24.677 33.1489 24.3597 32.9869 24.0802C32.8248 23.8008 32.5917 23.5691 32.3113 23.4087L22.2427 17.6557Z" fill="#1A3E3E"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="tour__content">
+                    <div class="tour__heading heading">
+                        <span class="heading__subtitle">о нашем походе</span>
+                        <h2 class="heading__title h2" id="tour-title">Исследуйте все горные массивы мира вместе с нами</h2>
+                    </div>
+                    <div class="tour__description">
+                        <p>
+                            Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
+                        </p>
+                    </div>
+                    <a class="tour__link button button--base" href="/">Программа тура</a>
+                </div>
+                <div class="tour__modal modal">
+                    <div class="modal__overlay" data-js-modal-overlay></div>
+                    <div class="modal__body" tabindex="-1" data-js-modal-body>
+                        <iframe 
+                            class="modal__video" 
+                            data-src="https://www.youtube.com/embed/YEhrcjk55wM?si=FiXCyHXLsb3zITiU" 
+                            width="560" height="315" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen 
+                            data-js-modal-video>
+                        </iframe>
+                        <button 
+                            class="modal__button-close" 
+                            type="button" 
+                            aria-label="Close video" 
+                            title="Close video" 
+                            data-js-modal-button-close
+                        >
+                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 14.545L1.455 16 8 9.455 14.545 16 16 14.545 9.455 8 16 1.455 14.545 0 8 6.545 1.455 0 0 1.455 6.545 8z" fill-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">

@@ -1,9 +1,10 @@
 @use 'helpers' as *;
 
 .header {    
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
+    width: 100%;
     animation-name: scrolling-header;
     animation-fill-mode: both;
     animation-timeline: scroll();
@@ -18,7 +19,7 @@
     }
 
     @include mobile {
-        padding-block: rem(10);
+        padding-block: 0;
     }
     
     &__inner {

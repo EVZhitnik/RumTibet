@@ -1,0 +1,84 @@
+@use 'helpers' as *;
+
+.tour {
+    &__inner {
+        display: grid;
+        grid-template-columns: calc(480 / 1180 * 100%) calc(580 / 1180 * 100%);
+        justify-content: space-between;
+        align-items: center;
+        gap: rem(40);
+
+        @include tablet {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__media {
+        position: relative;
+        padding-top: rem(126);
+        padding-left: rem(130);
+
+        @include mobile-s {
+            padding: 0;
+        }
+  
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(350 / 480 * 100%);
+            height: rem(400);
+            background: url('../img/tour/tour-bg-2.png') center/contain no-repeat;
+            border-radius: rem(24);
+
+            @include mobile-s {
+                display: none;
+            }
+        }
+    }
+
+    &__active {
+        position: relative;
+    }
+
+    &__image {
+        border-radius: rem(24);
+    }
+
+    &__button {
+        @include abs-position(both);
+
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        svg {
+            transition-duration: var(--transition-duration);
+        }
+
+        @include hover {
+            svg {
+                width: rem(60);
+                height: rem(60);
+            }
+        }
+    }
+
+    &__content {
+        display: grid;
+        row-gap: rem(40);
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    &__description {
+        font-size: rem(18);
+    }
+}

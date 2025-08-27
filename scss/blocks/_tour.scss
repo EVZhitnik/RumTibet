@@ -69,16 +69,13 @@
     &__content {
         display: grid;
         row-gap: rem(40);
-
-        @include tablet {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-        }
     }
 
     &__description {
         font-size: rem(18);
+    }
+
+    &__link {
+        justify-self: start;
     }
 }

@@ -1,0 +1,177 @@
+@use 'helpers' as *;
+
+.offer {
+    background-color: var(--color-light-green);
+    overflow: hidden;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: rem(40);
+
+        @include tablet {
+            flex-direction: column;
+        }
+
+        @include mobile-s {
+            gap: rem(32);
+        }
+    }
+
+    &__content {
+        display: grid;
+        row-gap: rem(40);
+        max-width: rem(580);
+        opacity: 0;
+        visibility: hidden;
+        animation-name: offer-content;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+
+        @keyframes offer-content {
+            0% {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(0%);
+            }
+        }
+
+        @include tablet {
+            max-width: 100%;
+        }
+
+        @include mobile-s {
+            row-gap: rem(32);
+        }
+    }
+
+    &__description {
+        font-size: rem(18);
+
+        @include mobile-s {
+            font-size: rem(16);
+        }
+    }
+
+    &__list {
+        display: grid;
+        row-gap: rem(40);
+
+        @include mobile-s {
+            row-gap: rem(32);
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        column-gap: rem(16);
+
+        @include mobile-s {
+            align-items: stretch;
+        }
+    }
+
+    &__info {
+        display: grid;
+        row-gap: rem(4);
+    }
+
+    &__link {
+        justify-self: start;
+    }
+
+    &__photos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(10);
+
+        @include mobile-s {
+            display: none;
+        }
+
+        &-image {
+            opacity: 0;
+            visibility: hidden;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+
+            &:nth-child(1) {
+                border-radius: 0 rem(50);
+                animation-name: child-1;
+
+                @keyframes child-1 {
+                    0% {
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: translate(-100%, -100%);
+                    }
+                    100% {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translate(0, 0);
+                    }
+                }
+            }
+            &:nth-child(2) {
+                border-radius: rem(50) 0;
+                animation-name: child-2;
+
+                @keyframes child-2 {
+                    0% {
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: translate(100%, -100%);
+                    }
+                    100% {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translate(0, 0);
+                    }
+                }
+            }
+            &:nth-child(3) {
+                border-radius: rem(50) 0;
+                animation-name: child-3;
+                
+                @keyframes child-3 {
+                    0% {
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: translate(-100%, 100%);
+                    }
+                    100% {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translate(0, 0);
+                    }
+                }
+            }
+            &:nth-child(4) {
+                border-radius: 0 rem(50);
+                animation-name: child-4;
+                
+                @keyframes child-4 {
+                    0% {
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: translate(100%, 100%);
+                    }
+                    100% {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translate(0, 0);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -55,4 +55,9 @@
             padding: rem(12) rem(24);
         }
     }
+
+    &--show {
+        padding: rem(12) rem(24);
+        justify-self: start;
+    }
 }

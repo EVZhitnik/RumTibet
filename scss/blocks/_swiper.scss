@@ -1,0 +1,49 @@
+@use 'helpers' as *;
+
+.swiper {
+    &-directions {
+        height: rem(500);
+
+        @include mobile {
+            height: rem(400) !important;
+        }
+        
+        &:not(:last-child) {
+            margin-bottom: rem(50);
+        }
+    }
+
+    &-slide {
+        &-directions {
+            position: relative;
+            border-radius: rem(32);
+            overflow-y: hidden;
+
+            @include mobile {
+                width: rem(285) !important;
+            }
+
+            @include hover {
+                .directions__rating {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                .directions__show {
+                    top: 0;
+                }
+            }
+
+            &:nth-child(1) {
+                background: url('../img/directions/directions-image-1.jpg') center/cover no-repeat;
+            }
+
+            &:nth-child(2) {
+                background: url('../img/directions/directions-image-2.jpg') center/cover no-repeat;
+            }
+
+            &:nth-child(3) {
+                background: url('../img/directions/directions-image-3.jpg') center/cover no-repeat;
+            }
+        }
+    }
+}

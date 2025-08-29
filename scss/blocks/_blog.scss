@@ -1,0 +1,9 @@
+@use 'helpers' as *;
+
+.blog {
+    background-color: var(--color-light-green);
+
+    &__link {
+        justify-self: center;
+    }
+}

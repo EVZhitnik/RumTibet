@@ -19,19 +19,46 @@ class InitSliderCollection {
     }
 
     init() {
-        this.sliders.hot = new InitSlider('.swiper-directions', {
-            slidesPerView: 'auto',  
-            spaceBetween: 16,
-            grabCursor: true,
-            centeredSlides: false,
-            simulateTouch: true,
-            watchOverflow: false,
+        this.sliders.directions = new InitSlider('.swiper-directions', {
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: true, 
+            },
             breakpoints: {
+                0: { 
+                    slidesPerView: 'auto',
+                    simulateTouch: true,
+                },
                 768: { 
-                slidesPerView: 3,
-                spaceBetween: 20,
+                    slidesPerView: 3,
+                    simulateTouch: false,
                 }
             }
+        }).slider;
+        this.sliders.blog = new InitSlider('.swiper-blog', {
+            slidesPerView: 2,
+            spaceBetween: 24,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: true, 
+            },
+            grid: {
+                rows: 2,
+                fill: 'row',
+            },
+            breakpoints: {
+                0: { 
+                    slidesPerView: 'auto',
+                    simulateTouch: true,
+                    grid: { rows: 1 },
+                },
+                768: {     
+                    slidesPerView: 2,
+                    simulateTouch: false,
+                    grid: { rows: 2 },
+                },
+            },
         }).slider;
     }
 }

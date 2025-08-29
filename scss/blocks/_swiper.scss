@@ -1,15 +1,33 @@
 @use 'helpers' as *;
 
 .swiper {
+    padding-inline: rem(16) !important;
+
     &-directions {
         height: rem(500);
 
-        @include mobile {
-            height: rem(400) !important;
-        }
-        
         &:not(:last-child) {
             margin-bottom: rem(50);
+        }
+
+        @include mobile {
+            height: rem(400) !important;
+
+            &:not(:last-child) {
+                margin-bottom: rem(32);
+            }
+        }
+    }
+
+    &-blog {
+        &:not(:last-child) {
+            margin-bottom: rem(50);
+        }
+
+        @include mobile {
+            &:not(:last-child) {
+                margin-bottom: rem(32);
+            }
         }
     }
 
@@ -28,6 +46,7 @@
                     opacity: 0;
                     visibility: hidden;
                 }
+
                 .directions__show {
                     top: 0;
                 }
@@ -43,6 +62,12 @@
 
             &:nth-child(3) {
                 background: url('../img/directions/directions-image-3.jpg') center/cover no-repeat;
+            }
+        }
+
+        &-blog {
+            @include mobile {
+                width: rem(285) !important;
             }
         }
     }

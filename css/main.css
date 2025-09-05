@@ -1247,26 +1247,30 @@ section:not(:first-child) {
 .swiper {
   padding-inline: 1rem !important;
 }
+.swiper-directions:not(:last-child), .swiper-blog:not(:last-child), .swiper-photo:not(:last-child) {
+  margin-bottom: 3.125rem;
+}
+@media (width <= 47.99875rem) {
+  .swiper-directions:not(:last-child), .swiper-blog:not(:last-child), .swiper-photo:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
 .swiper-directions {
   height: 31.25rem;
-}
-.swiper-directions:not(:last-child) {
-  margin-bottom: 3.125rem;
 }
 @media (width <= 47.99875rem) {
   .swiper-directions {
     height: 25rem !important;
   }
-  .swiper-directions:not(:last-child) {
-    margin-bottom: 2rem;
-  }
 }
-.swiper-blog:not(:last-child) {
-  margin-bottom: 3.125rem;
-}
-@media (width <= 47.99875rem) {
-  .swiper-blog:not(:last-child) {
-    margin-bottom: 2rem;
+@media (width > 47.99875rem) {
+  .swiper-wrapper-photo {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-areas: "image-1 image-1 image-2 image-3" "image-4 image-5 image-5 image-6" !important;
+    gap: 1.25rem !important;
+    transform: none !important;
+    height: 100% !important;
   }
 }
 .swiper-slide-directions {
@@ -1309,6 +1313,35 @@ section:not(:first-child) {
 @media (width <= 47.99875rem) {
   .swiper-slide-blog {
     width: 17.8125rem !important;
+  }
+}
+.swiper-slide-photo {
+  width: 17.5rem !important;
+}
+@media (width > 47.99875rem) {
+  .swiper-slide-photo {
+    width: auto !important;
+    height: auto !important;
+    display: block;
+    margin: 0 !important;
+  }
+  .swiper-slide-photo:nth-child(1) {
+    grid-area: image-1;
+  }
+  .swiper-slide-photo:nth-child(2) {
+    grid-area: image-2;
+  }
+  .swiper-slide-photo:nth-child(3) {
+    grid-area: image-3;
+  }
+  .swiper-slide-photo:nth-child(4) {
+    grid-area: image-4;
+  }
+  .swiper-slide-photo:nth-child(5) {
+    grid-area: image-5;
+  }
+  .swiper-slide-photo:nth-child(6) {
+    grid-area: image-6;
   }
 }
 
@@ -1415,6 +1448,107 @@ section:not(:first-child) {
   font-weight: 700;
   line-height: 1.43;
   color: var(--color-dark-green);
+}
+
+.photo__body {
+  position: relative;
+}
+@media (any-hover: hover) {
+  .photo__body:hover .photo__overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 0.375rem;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+@media (any-hover: hover) and (width <= 47.99875rem) {
+  .photo__body:hover .photo__overlay {
+    display: none;
+  }
+}
+@media (any-hover: hover) {
+  .photo__body:hover .photo__icon {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+  .photo__body:hover .photo__icon svg {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+}
+@media (any-hover: none) {
+  .photo__body:active .photo__overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 0.375rem;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+@media (any-hover: none) and (width <= 47.99875rem) {
+  .photo__body:active .photo__overlay {
+    display: none;
+  }
+}
+@media (any-hover: none) {
+  .photo__body:active .photo__icon {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+  .photo__body:active .photo__icon svg {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+}
+.photo__overlay {
+  transition: background-color 0.3s ease-in-out;
+}
+.photo__image {
+  border-radius: 0.375rem;
+}
+.photo__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+  cursor: pointer;
+}
+.photo__icon svg {
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+@media (any-hover: hover) {
+  .photo__icon:hover svg path {
+    stroke: var(--color-yellow);
+  }
+}
+@media (any-hover: none) {
+  .photo__icon:active svg path {
+    stroke: var(--color-yellow);
+  }
+}
+@media (width <= 47.99875rem) {
+  .photo__icon {
+    display: none;
+  }
+}
+.photo__link {
+  justify-self: center;
 }
 
 /*# sourceMappingURL=main.css.map */

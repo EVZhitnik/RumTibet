@@ -37,7 +37,6 @@ class InitSliderCollection {
             }
         }).slider;
         this.sliders.blog = new InitSlider('.swiper-blog', {
-            slidesPerView: 2,
             spaceBetween: 24,
             autoplay: {
                 delay: 3000,
@@ -57,6 +56,23 @@ class InitSliderCollection {
                     slidesPerView: 2,
                     simulateTouch: false,
                     grid: { rows: 2 },
+                },
+            },
+        }).slider;
+        this.sliders.photo = new InitSlider('.swiper-photo', {
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: true, 
+            },
+            breakpoints: {
+                0: { 
+                    enabled: true, 
+                    slidesPerView: 'auto',
+                    spaceBetween: 20,
+                    simulateTouch: true,
+                },
+                768: { 
+                    enabled: false,    
                 },
             },
         }).slider;

@@ -1,0 +1,69 @@
+@use 'helpers' as *;
+
+.photo {
+    &__body {
+        position: relative;
+        
+        @include hover {
+            .photo__overlay {
+                @include abs-position(both);
+                @include square(100%);
+
+                z-index: 10;
+                border-radius: rem(6);
+                background-color: rgba(0, 0, 0, 0.2);
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            .photo__icon {
+                @include square(rem(30));
+
+                svg {
+                    width: rem(30);
+                    height: rem(30);
+                }
+            }
+        }
+    }
+
+    &__overlay {
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    &__image {
+        border-radius: rem(6);
+    }
+
+    &__icon {
+        @include abs-position(both);
+        @include square(rem(24));
+        @include flexbox(true, center, center);
+
+        z-index: 20;
+        transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+        cursor: pointer;
+
+        svg {
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+        }
+
+        @include hover {
+            svg {
+                path {
+                    stroke: var(--color-yellow);
+                }
+            }
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &__link {
+        justify-self: center;
+    }
+}

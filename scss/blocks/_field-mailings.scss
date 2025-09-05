@@ -1,0 +1,45 @@
+@use 'helpers' as *;
+
+.field-mailings {
+    display: grid;
+    row-gap: rem(8);
+
+    @include mobile-s {
+        width: 100%;
+    }
+
+    &__label {
+        font-weight: 600;
+        font-size: rem(16);
+    }
+
+    &__input {
+        font-weight: 300;
+        line-height: 1.43;
+        width: max(rem(150), calc(280 / 1920 * 100vw));
+        background-color: var(--color-light-green);
+        border: none;
+        outline: none;
+        border-radius: rem(4);
+        padding: rem(12) rem(16);
+
+        &:focus-visible {
+            outline: rem(1) dashed var(--color-light);
+            outline-offset: rem(2);
+            transition-duration: 0s !important;
+        }
+
+        @include mobile {
+            width: rem(310);
+        }
+
+        @include mobile-s {
+            width: 100%;
+        }
+
+        &::placeholder {
+            font-weight: 300;
+            line-height: 1.43;
+        }
+    }
+}

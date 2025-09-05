@@ -28,6 +28,7 @@
             position: absolute;
             top: 0;
             left: 0;
+            z-index: -1;
             width: calc(350 / 480 * 100%);
             height: rem(400);
             background: url('../img/tour/tour-bg-2.png') center/contain no-repeat;

@@ -671,16 +671,16 @@ section:not(:first-child) {
   }
 }
 
-.field {
+.field-hero {
   display: grid;
   row-gap: 0.5rem;
 }
-.field__custom-select {
+.field-hero__custom-select {
   position: relative;
   border: 0.0625rem solid var(--color-form-field);
   border-radius: 0.5rem;
 }
-.field__custom-select::after {
+.field-hero__custom-select::after {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -690,10 +690,10 @@ section:not(:first-child) {
   right: 1rem;
   pointer-events: none;
 }
-.field__custom-select--arrow::after {
+.field-hero__custom-select--arrow::after {
   background: url("../icon/arrow-form.svg") center/contain no-repeat;
 }
-.field__select {
+.field-hero__select {
   width: 100%;
   font-weight: 700;
   font-size: 1rem;
@@ -706,28 +706,28 @@ section:not(:first-child) {
   appearance: none;
   cursor: pointer;
 }
-.field__select option {
+.field-hero__select option {
   color: var(--color-dark);
 }
-.field__select:focus-visible {
+.field-hero__select:focus-visible {
   outline: 0.0625rem dashed var(--color-light);
   outline-offset: 0.125rem;
   transition-duration: 0s !important;
 }
-.field__select::-ms-expand {
+.field-hero__select::-ms-expand {
   display: none;
 }
-.field__calendar {
+.field-hero__calendar {
   display: flex;
   border: 0.0625rem solid var(--color-form-field);
   border-radius: 0.5rem;
 }
 @media (width <= 63.99875rem) {
-  .field__calendar {
+  .field-hero__calendar {
     justify-content: space-between;
   }
 }
-.field__input {
+.field-hero__input {
   flex-grow: 1;
   width: 100%;
   font-weight: 700;
@@ -737,16 +737,16 @@ section:not(:first-child) {
   background: transparent;
   padding: 0.9375rem 1rem;
 }
-.field__input::placeholder {
+.field-hero__input::placeholder {
   color: var(--color-menu);
   opacity: 1;
 }
-.field__input:focus-visible {
+.field-hero__input:focus-visible {
   outline: 0.0625rem dashed var(--color-light);
   outline-offset: 0.125rem;
   transition-duration: 0s !important;
 }
-.field__button {
+.field-hero__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -757,15 +757,15 @@ section:not(:first-child) {
   padding-inline: 1rem;
   cursor: pointer;
 }
-.field__button:focus-visible {
+.field-hero__button:focus-visible {
   outline: none;
 }
-.field__icon {
+.field-hero__icon {
   width: 0.9375rem;
   height: 0.9375rem;
   background: url("../icon/calendar-form.svg") center/contain no-repeat;
 }
-.field__help {
+.field-hero__help {
   color: var(--color-menu);
 }
 
@@ -797,6 +797,7 @@ section:not(:first-child) {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
   width: 72.9166666667%;
   height: 25rem;
   background: url("../img/tour/tour-bg-2.png") center/contain no-repeat;

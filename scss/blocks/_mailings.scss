@@ -1,0 +1,39 @@
+@use 'helpers' as *;
+
+.mailings {
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        column-gap: rem(30);
+        border-radius: rem(6);
+        box-shadow: var(--shadow);
+        padding: rem(40) rem(100);
+
+        @include tablet {
+            padding: rem(24);
+        }
+
+        @include mobile {
+            flex-direction: column;
+            row-gap: rem(18);
+        }
+    }
+
+    &__body {
+        display: grid;
+        row-gap: rem(8);
+
+        @include mobile {
+            row-gap: rem(24);
+        }
+    }
+
+    &__text {
+        font-weight: 600;
+        line-height: 1.29;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+}

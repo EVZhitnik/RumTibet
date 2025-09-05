@@ -3,30 +3,40 @@
 .swiper {
     padding-inline: rem(16) !important;
 
-    &-directions {
-        height: rem(500);
-
+    &-directions,
+    &-blog,
+    &-photo {
         &:not(:last-child) {
             margin-bottom: rem(50);
         }
 
         @include mobile {
-            height: rem(400) !important;
-
             &:not(:last-child) {
                 margin-bottom: rem(32);
             }
         }
     }
 
-    &-blog {
-        &:not(:last-child) {
-            margin-bottom: rem(50);
-        }
+    &-directions {
+        height: rem(500);
 
         @include mobile {
-            &:not(:last-child) {
-                margin-bottom: rem(32);
+            height: rem(400) !important;
+        }
+    }
+
+    &-wrapper {
+        &-photo {
+            @include mobile-above {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                grid-template-areas: 
+                'image-1 image-1 image-2 image-3'
+                'image-4 image-5 image-5 image-6' !important
+                ;
+                gap: rem(20) !important;
+                transform: none !important;
+                height: 100% !important;
             }
         }
     }
@@ -68,6 +78,36 @@
         &-blog {
             @include mobile {
                 width: rem(285) !important;
+            }
+        }
+
+        &-photo {
+            width: rem(280) !important;
+
+            @include mobile-above {
+                width: auto !important;
+                height: auto !important;
+                display: block;
+                margin: 0 !important;
+
+                &:nth-child(1) {
+                    grid-area: image-1;
+                }
+                &:nth-child(2) {
+                    grid-area: image-2;
+                }
+                &:nth-child(3) {
+                    grid-area: image-3;
+                }
+                &:nth-child(4) {
+                    grid-area: image-4;
+                }
+                &:nth-child(5) {
+                    grid-area: image-5;
+                }
+                &:nth-child(6) {
+                    grid-area: image-6;
+                }
             }
         }
     }

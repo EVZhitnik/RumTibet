@@ -554,26 +554,26 @@ section:not(:first-child) {
     display: none;
   }
 }
-.button--form {
+.button--hero-form {
   background-color: var(--color-menu);
   color: var(--color-dark-green);
   align-self: start;
   padding: 1rem 2.25rem;
 }
 @media (width <= 63.99875rem) {
-  .button--form {
+  .button--hero-form {
     justify-self: start;
   }
 }
 @media (any-hover: hover) {
-  .button--form:hover {
+  .button--hero-form:hover {
     background-color: var(--color-dark-green);
     color: var(--color-menu);
     border: 0.0625rem solid var(--color-light);
   }
 }
 @media (any-hover: none) {
-  .button--form:active {
+  .button--hero-form:active {
     background-color: var(--color-dark-green);
     color: var(--color-menu);
     border: 0.0625rem solid var(--color-light);
@@ -595,6 +595,10 @@ section:not(:first-child) {
 .button--show {
   padding: 0.75rem 1.5rem;
   justify-self: start;
+}
+.button--mailings-form {
+  padding: 0.75rem 1.5rem;
+  text-wrap: nowrap;
 }
 
 .burger-button {
@@ -671,16 +675,16 @@ section:not(:first-child) {
   }
 }
 
-.field {
+.field-hero {
   display: grid;
   row-gap: 0.5rem;
 }
-.field__custom-select {
+.field-hero__custom-select {
   position: relative;
   border: 0.0625rem solid var(--color-form-field);
   border-radius: 0.5rem;
 }
-.field__custom-select::after {
+.field-hero__custom-select::after {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -690,10 +694,10 @@ section:not(:first-child) {
   right: 1rem;
   pointer-events: none;
 }
-.field__custom-select--arrow::after {
+.field-hero__custom-select--arrow::after {
   background: url("../icon/arrow-form.svg") center/contain no-repeat;
 }
-.field__select {
+.field-hero__select {
   width: 100%;
   font-weight: 700;
   font-size: 1rem;
@@ -706,28 +710,28 @@ section:not(:first-child) {
   appearance: none;
   cursor: pointer;
 }
-.field__select option {
+.field-hero__select option {
   color: var(--color-dark);
 }
-.field__select:focus-visible {
+.field-hero__select:focus-visible {
   outline: 0.0625rem dashed var(--color-light);
   outline-offset: 0.125rem;
   transition-duration: 0s !important;
 }
-.field__select::-ms-expand {
+.field-hero__select::-ms-expand {
   display: none;
 }
-.field__calendar {
+.field-hero__calendar {
   display: flex;
   border: 0.0625rem solid var(--color-form-field);
   border-radius: 0.5rem;
 }
 @media (width <= 63.99875rem) {
-  .field__calendar {
+  .field-hero__calendar {
     justify-content: space-between;
   }
 }
-.field__input {
+.field-hero__input {
   flex-grow: 1;
   width: 100%;
   font-weight: 700;
@@ -737,16 +741,16 @@ section:not(:first-child) {
   background: transparent;
   padding: 0.9375rem 1rem;
 }
-.field__input::placeholder {
+.field-hero__input::placeholder {
   color: var(--color-menu);
   opacity: 1;
 }
-.field__input:focus-visible {
+.field-hero__input:focus-visible {
   outline: 0.0625rem dashed var(--color-light);
   outline-offset: 0.125rem;
   transition-duration: 0s !important;
 }
-.field__button {
+.field-hero__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -757,15 +761,15 @@ section:not(:first-child) {
   padding-inline: 1rem;
   cursor: pointer;
 }
-.field__button:focus-visible {
+.field-hero__button:focus-visible {
   outline: none;
 }
-.field__icon {
+.field-hero__icon {
   width: 0.9375rem;
   height: 0.9375rem;
   background: url("../icon/calendar-form.svg") center/contain no-repeat;
 }
-.field__help {
+.field-hero__help {
   color: var(--color-menu);
 }
 
@@ -797,6 +801,7 @@ section:not(:first-child) {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
   width: 72.9166666667%;
   height: 25rem;
   background: url("../img/tour/tour-bg-2.png") center/contain no-repeat;
@@ -1549,6 +1554,97 @@ section:not(:first-child) {
 }
 .photo__link {
   justify-self: center;
+}
+
+.mailings__inner {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1.875rem;
+  border-radius: 0.375rem;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 6.25rem;
+}
+@media (width <= 63.99875rem) {
+  .mailings__inner {
+    padding: 1.5rem;
+  }
+}
+@media (width <= 47.99875rem) {
+  .mailings__inner {
+    flex-direction: column;
+    row-gap: 1.125rem;
+  }
+}
+.mailings__body {
+  display: grid;
+  row-gap: 0.5rem;
+}
+@media (width <= 47.99875rem) {
+  .mailings__body {
+    row-gap: 1.5rem;
+  }
+}
+.mailings__text {
+  font-weight: 600;
+  line-height: 1.29;
+}
+.mailings__text a {
+  text-decoration: underline;
+}
+
+.mailings-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+@media (width <= 47.99875rem) {
+  .mailings-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.field-mailings {
+  display: grid;
+  row-gap: 0.5rem;
+}
+@media (width <= 30.06125rem) {
+  .field-mailings {
+    width: 100%;
+  }
+}
+.field-mailings__label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.field-mailings__input {
+  font-weight: 300;
+  line-height: 1.43;
+  width: max(9.375rem, 14.5833333333vw);
+  background-color: var(--color-light-green);
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+}
+.field-mailings__input:focus-visible {
+  outline: 0.0625rem dashed var(--color-light);
+  outline-offset: 0.125rem;
+  transition-duration: 0s !important;
+}
+@media (width <= 47.99875rem) {
+  .field-mailings__input {
+    width: 19.375rem;
+  }
+}
+@media (width <= 30.06125rem) {
+  .field-mailings__input {
+    width: 100%;
+  }
+}
+.field-mailings__input::placeholder {
+  font-weight: 300;
+  line-height: 1.43;
 }
 
 /*# sourceMappingURL=main.css.map */

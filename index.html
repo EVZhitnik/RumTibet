@@ -72,10 +72,10 @@
                 <h1 class="hero__title h1" id="hero-title">Насладись прогулкой в горах с командой единомышленников</h1>
                 <div class="hero__form">
                     <form class="hero-form" action="/">
-                        <div class="hero-form__cell field">
-                            <label class="field__label visually-hidden" for="list-city">Локация для тура</label>
-                            <div class="field__custom-select field__custom-select--arrow">
-                                <select class="field__select" name="list-city" id="list-city">
+                        <div class="hero-form__cell field-hero">
+                            <label class="field-hero__label visually-hidden" for="list-city">Локация для тура</label>
+                            <div class="field-hero__custom-select field-hero__custom-select--arrow">
+                                <select class="field-hero__select" name="list-city" id="list-city">
                                     <option disabled value="" selected>Локации для тура</option>
                                     <option value="United Kingdom">Великобритания</option>
                                     <option value="Russia">Россия</option>
@@ -84,27 +84,27 @@
                             </div>
                             <span class="field__help">выберите из списка</span>
                         </div>
-                        <div class="hero-form__cell field" data-js-calendar>
-                            <label class="field__label visually-hidden" for="calendar">Дата похода</label>
-                            <div class="field__calendar">
+                        <div class="hero-form__cell field-hero" data-js-calendar>
+                            <label class="field-hero__label visually-hidden" for="calendar">Дата похода</label>
+                            <div class="field-hero__calendar">
                                 <input 
-                                    class="field__input" 
+                                    class="field-hero__input" 
                                     name="calendar" 
                                     id="calendar" 
                                     type="text" 
                                     placeholder="Дата похода"
                                     data-js-calendar-input
                                 >
-                                <button class="field__button" type="button" data-js-calendar-button>
-                                    <span class="field__icon"></span>
+                                <button class="field-hero__button" type="button" data-js-calendar-button>
+                                    <span class="field-hero__icon"></span>
                                 </button>
                             </div>
-                            <span class="field__help">укажите диапазон</span>
+                            <span class="field-hero__help">укажите диапазон</span>
                         </div>
-                        <div class="hero-form__cell field">
-                            <label class="field__label visually-hidden" for="list-party">Участники</label>
-                            <div class="field__custom-select field__custom-select--arrow">
-                                <select class="field__select" name="list-party" id="list-party">
+                        <div class="hero-form__cell field-hero">
+                            <label class="field-hero__label visually-hidden" for="list-party">Участники</label>
+                            <div class="field-hero__custom-select field-hero__custom-select--arrow">
+                                <select class="field-hero__select" name="list-party" id="list-party">
                                     <option disabled value="" selected>Участники</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
@@ -112,9 +112,9 @@
                                     <option value="7">7</option>
                                 </select>
                             </div>
-                            <span class="field__help">минимум 4 человека</span>
+                            <span class="field-hero__help">минимум 4 человека</span>
                         </div>
-                        <button class="hero-form__button button button--form" type="submit">Найти программу</button>
+                        <button class="hero-form__button button button--hero-form" type="submit">Найти программу</button>
                     </form>
                 </div>
             </div>
@@ -359,7 +359,7 @@
         <section class="blog" aria-labelledby="blog-title">
             <div class="heading heading--center">
                 <span class="heading__subtitle">делимся впечатлениями</span>
-                <h2 class="heading__title h2" id="directions-title">Блог о путешествиях</h2>
+                <h2 class="heading__title h2" id="blog-title">Блог о путешествиях</h2>
             </div>
             <div class="blog__inner container container--alternate">
                 <div class="swiper swiper-blog">
@@ -464,7 +464,7 @@
         <section class="photo" aria-labelledby="photo-title">
             <div class="heading heading--center">
                 <span class="heading__subtitle">фото-отчет</span>
-                <h2 class="heading__title h2" id="directions-title">Делимся впечатлениями</h2>
+                <h2 class="heading__title h2" id="photo-title">Делимся впечатлениями</h2>
             </div>
             <div class="photo__inner container container--alternate">
                 <div class="swiper swiper-photo">
@@ -562,6 +562,28 @@
                     </div>
                 </div>
                 <a class="photo__link button button--base" href="/">Наш pinterest</a>
+            </div>
+        </section>
+        <section class="mailings" aria-labelledby="mailings">
+            <div class="mailings__inner container">
+                <div class="heading">
+                    <span class="heading__subtitle">актуально</span>
+                    <h2 class="heading__title h2" id="mailings-title">Получайте полезные рассылки о путешествиях</h2>
+                </div>
+                <div class="mailings__body">
+                    <form class="mailings-form" action="/">
+                        <div class="mailings-form__cell field-mailings">
+                            <label class="field-mailings__label" for="e-mail">Введите e-mail адрес</label>
+                            <input class="field-mailings__input" type="email" id="e-mail" placeholder="name@domain.com" required>
+                        </div>
+                        <button class="mailings-form__button button button--mailings-form">Подписаться на новости</button>
+                    </form>
+                    <p class="mailings__text">
+                        подписываясь на новости, вы автоматически соглашаетесь с 
+                        <a href="/">условиями обработки персональных данных</a> и 
+                        <a href="/">правилами рекламных рассылок</a>
+                    </p>
+                </div>
             </div>
         </section>
     </main>

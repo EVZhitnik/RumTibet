@@ -27,23 +27,25 @@
         }
     }
 
-    &--form {
-        background-color: var(--color-menu);
-        color: var(--color-dark-green);
-        align-self: start;
-        padding: rem(16) rem(36);
+    &--hero {
+        &-form {
+            background-color: var(--color-menu);
+            color: var(--color-dark-green);
+            align-self: start;
+            padding: rem(16) rem(36);
 
-        @include tablet {
-            justify-self: start;
-        }
+            @include tablet {
+                justify-self: start;
+            }
 
-        @include hover {
-            background-color: var(--color-dark-green);
-            color: var(--color-menu);
-            border: rem(1) solid var(--color-light);
+            @include hover {
+                background-color: var(--color-dark-green);
+                color: var(--color-menu);
+                border: rem(1) solid var(--color-light);
+            }
         }
     }
-
+    
     &--base {
         padding: rem(16) rem(36);
 
@@ -59,5 +61,12 @@
     &--show {
         padding: rem(12) rem(24);
         justify-self: start;
+    }
+
+    &--mailings {
+        &-form {
+            padding: rem(12) rem(24);
+            text-wrap: nowrap;
+        }
     }
 }

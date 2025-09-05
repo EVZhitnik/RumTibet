@@ -9,7 +9,7 @@
 @use 'blocks/button.scss';
 @use 'blocks/burger-button.scss';
 @use 'blocks/hero-form.scss';
-@use 'blocks/field.scss';
+@use 'blocks/field-hero.scss';
 
 @use 'blocks/tour.scss';
 @use 'blocks/heading.scss';
@@ -24,6 +24,10 @@
 @use 'blocks/card-blog.scss';
 
 @use 'blocks/photo.scss';
+
+@use 'blocks/mailings.scss';
+@use 'blocks/mailings-form.scss';
+@use 'blocks/field-mailings.scss';
 
 // .header,
 // main > *:not(:last-child),

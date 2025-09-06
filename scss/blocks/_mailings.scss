@@ -1,16 +1,22 @@
 @use 'helpers' as *;
 
 .mailings {
+    position: relative;
+    z-index: 20;
+
     &__inner {
         display: flex;
         justify-content: space-between;
         column-gap: rem(30);
+        background-color: var(--color-menu);
         border-radius: rem(6);
         box-shadow: var(--shadow);
         padding: rem(40) rem(100);
 
         @include tablet {
             padding: rem(24);
+            margin-inline: rem(16);
+            margin-bottom: rem(50);
         }
 
         @include mobile {

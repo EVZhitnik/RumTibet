@@ -72,7 +72,7 @@ a {
 }
 
 section {
-    &:not(:first-child) {
+    &:not(:first-child):not(:last-child) {
         padding-top: rem(80);
         padding-bottom: rem(100);
 

@@ -78,6 +78,7 @@
         &-blog {
             @include mobile {
                 width: rem(285) !important;
+                height: 100% !important;
             }
         }
 

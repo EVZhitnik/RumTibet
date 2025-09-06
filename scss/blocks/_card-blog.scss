@@ -14,7 +14,7 @@
         @include hover {
             box-shadow: var(--shadow);
 
-            .card-blog__title {
+            .card-blog__link-content {
                 color: var(--color-dark-green);
                 text-decoration: underline;
             }
@@ -56,11 +56,8 @@
 
         @include mobile {
             padding-inline: rem(16);
+            height: rem(250);
         }
-    }
-
-    &__title {
-        transition: color 0.3s ease-in-out;
     }
 
     &__info {
@@ -81,8 +78,14 @@
     }
 
     &__link {
-        font-weight: 700;
-        line-height: 1.43;
-        color: var(--color-dark-green);
+        &-content {
+            @include transition(color);
+        }
+
+        &-info {
+            font-weight: 700;
+            line-height: 1.43;
+            color: var(--color-dark-green);
+        }
     }
 }

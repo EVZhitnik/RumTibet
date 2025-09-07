@@ -4,6 +4,10 @@
     position: relative;
     z-index: 20;
 
+    @include mobile {
+        z-index: 0;
+    }
+
     &__inner {
         display: flex;
         justify-content: space-between;

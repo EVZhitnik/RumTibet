@@ -7,7 +7,7 @@
         justify-content: space-between;
         align-items: center;
         gap: rem(40);
-
+        
         @include tablet {
             display: flex;
             flex-direction: column-reverse;
@@ -18,6 +18,25 @@
         position: relative;
         padding-top: rem(126);
         padding-left: rem(130);
+        opacity: 0;
+        visibility: hidden;
+        animation-name: tour-active;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 40%;
+
+        @keyframes tour-active {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0%);
+            }
+        }
 
         @include mobile-s {
             padding: 0;
@@ -68,8 +87,29 @@
     }
 
     &__content {
+        position: relative;
+        z-index: 9;
         display: grid;
         row-gap: rem(40);
+        opacity: 0;
+        visibility: hidden;
+        animation-name: tour-content;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 40%;
+
+        @keyframes tour-content {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0%);
+            }
+        }
     }
 
     &__description {

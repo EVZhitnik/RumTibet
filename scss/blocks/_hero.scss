@@ -1,6 +1,8 @@
 @use 'helpers' as *;
 
 .hero {
+    position: relative;
+    z-index: 10;
     background: url('/img/hero/hero-bg.jpg') center/cover no-repeat;
 
     &__body {
@@ -8,6 +10,25 @@
         row-gap: rem(41);
         padding-top: rem(551);
         padding-bottom: rem(82);
+        opacity: 0;
+        visibility: hidden;
+        animation-name: hero-body;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+
+        @keyframes hero-body {
+            0% {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(100%);
+            }
+            100% {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0%);
+            }
+        }
 
         @include mobile {
             padding-top: rem(298);

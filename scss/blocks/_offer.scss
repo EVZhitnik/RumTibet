@@ -4,9 +4,8 @@
     background-color: var(--color-light-green);
 
     &__inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flexbox(true, space-between, center);
+
         gap: rem(40);
         
         @include mobile-s {

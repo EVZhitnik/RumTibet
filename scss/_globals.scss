@@ -2,7 +2,7 @@
 
 html {
     &.is-lock {
-        overflow: hidden
+        overflow: hidden;
     }
 }
 
@@ -13,6 +13,7 @@ body {
     font-size: rem(14);
     color: var(--color-dark);
     background-color: var(--color-light);
+    overflow-x: hidden;
 
     &.is-open {
         overflow: hidden;

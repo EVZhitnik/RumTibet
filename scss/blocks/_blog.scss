@@ -3,6 +3,84 @@
 .blog {
     background-color: var(--color-light-green);
 
+    &__body {
+        @include transition(box-shadow);
+
+        display: grid;
+        grid-template-columns: calc(246 / 580 * 100%) calc(310 / 580 * 100%);
+        gap: rem(24);
+        padding: rem(16);
+        background-color: var(--color-light);
+        border-radius: rem(10);
+        cursor: pointer;
+
+        @include hover {
+            box-shadow: var(--shadow);
+
+            .blog__link-content {
+                color: var(--color-dark-green);
+                text-decoration: underline;
+            }
+        }
+
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding: 0;
+            width: rem(285);
+            height: 100%;
+        }
+    }
+
+    &__image {
+        border-radius: rem(6);
+
+        @include mobile {
+            width: 100%;
+            border-radius: rem(6) rem(6) 0 0;
+        }
+    }
+
+    &__content {
+        display: grid;
+        row-gap: rem(24);
+        padding-block: rem(16);
+        max-width: rem(295);
+
+        @include mobile {
+            padding-inline: rem(16);
+        }
+    }
+
+    &__info {
+        @include flexbox(true, space-between, center);
+
+        gap: rem(10);
+    }
+
+    &__description {
+        line-height: 1.43;
+    }
+
+    &__date {
+        font-weight: 700;
+        line-height: 1.43;
+        color: var(--color-yellow);
+    }
+
+    &__link {
+        &-content {
+            @include transition(color);
+        }
+
+        &-info {
+            font-weight: 700;
+            line-height: 1.43;
+            color: var(--color-dark-green);
+        }
+    }
+
     &__link {
         justify-self: center;
     }

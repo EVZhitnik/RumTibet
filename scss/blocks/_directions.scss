@@ -1,6 +1,18 @@
 @use 'helpers' as *;
 
 .directions {
+    &__content {
+        position: relative;
+        overflow: hidden;
+        height: rem(500);
+        border-radius: rem(32);
+
+        @include mobile {
+            width: rem(285);
+            height: rem(400);
+        }
+    }
+
     &__rating {
         display: flex;
         justify-content: flex-end;
@@ -44,11 +56,6 @@
         border-radius: 0 0 rem(32) rem(32);
         height: 100%;
         transition: top 1s ease-in-out;
-        scrollbar-width: none;
-
-        @include laptop {
-            padding-inline: rem(10);
-        }
 
         @include mobile {
             top: rem(330);
@@ -57,9 +64,8 @@
     }
 
     &__heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flexbox(true, space-between, center);
+
         gap: rem(10);
 
         &:not(:last-child) {
@@ -72,7 +78,7 @@
         font-weight: 700;
         line-height: 1.2;
 
-        @include tablet {
+        @include mobile {
             font-size: rem(18);
         }
     }
@@ -80,7 +86,7 @@
     &__subtitle {
         line-height: 1.29;
 
-        @include tablet {
+        @include mobile {
             display: none;
         }
     }
@@ -90,19 +96,12 @@
         background: rgba(255, 255, 255, 0.3);
         border-radius: rem(4);
 
-        @include tablet {
-            font-size: rem(16);
-        }
-
         span {
             display: inline-block;
             padding: rem(8) rem(16);
 
-            @include tablet {
-                padding: rem(5);
-            }
-
             @include mobile {
+                font-size: rem(16);
                 padding: rem(6) rem(12);
             }
         }
@@ -115,16 +114,9 @@
             margin-bottom: rem(105);
         }
 
-        @include tablet {
-            font-size: rem(14);
-
-            &:not(:last-child) {
-                margin-bottom: rem(70);
-            }
-        }
-
         @include mobile {
             &:not(:last-child) {
+                font-size: rem(14);
                 margin-bottom: rem(10);
             }
         }

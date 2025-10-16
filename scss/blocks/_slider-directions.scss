@@ -1,0 +1,63 @@
+@use 'helpers' as *;
+
+.slider-directions {
+    &:not(:last-child) {
+        margin-bottom: rem(50);
+
+        @include mobile {
+            margin-bottom: rem(32);
+        }
+    }
+
+    &__container {
+        overflow: hidden;
+        width: 100%;
+        padding-inline: rem(16);
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: rem(20);
+        cursor: grab;
+
+        @include mobile-above {
+            justify-content: center;
+            flex-wrap: wrap;
+            cursor: default;
+        }
+    }
+
+    &__slide {
+        width: 100%;
+        max-width: rem(380);
+        border-radius: rem(32);
+
+        @include mobile {
+            width: auto;
+            max-width: none;
+        }
+
+        @include hover {
+            .directions__rating {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .directions__show {
+                top: 0;
+            }
+        }
+
+        &:nth-child(1) {
+            background: url('../img/directions/directions-image-1.jpg') center/cover no-repeat;
+        }
+
+        &:nth-child(2) {
+            background: url('../img/directions/directions-image-2.jpg') center/cover no-repeat;
+        }
+
+        &:nth-child(3) {
+            background: url('../img/directions/directions-image-3.jpg') center/cover no-repeat;
+        }
+    }
+}

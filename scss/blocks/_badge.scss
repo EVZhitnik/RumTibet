@@ -1,11 +1,9 @@
 @use 'helpers' as *;
 
 .badge {
+    @include flexbox(false, center, center);
     @include transition (color, background-color);
     
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     font-weight: 700;
     font-size: rem(12);
     line-height: 1.33;

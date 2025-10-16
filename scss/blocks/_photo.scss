@@ -1,8 +1,12 @@
 @use 'helpers' as *;
 
 .photo {
-    &__body {
+    &__content {
         position: relative;
+
+        @include mobile {
+            width: rem(280);
+        }
         
         @include hover {
             .photo__overlay {
@@ -30,10 +34,11 @@
     }
 
     &__overlay {
-        transition: background-color 0.3s ease-in-out;
+        @include transition(background-color);
     }
 
     &__image {
+        width: 100%;
         border-radius: rem(6);
     }
 
@@ -41,13 +46,13 @@
         @include abs-position(both);
         @include square(rem(24));
         @include flexbox(true, center, center);
+        @include transition(width, height);
 
         z-index: 20;
-        transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
         cursor: pointer;
 
         svg {
-            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+            @include transition(width, height);
         }
 
         @include hover {

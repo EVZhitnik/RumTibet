@@ -1,0 +1,63 @@
+@use 'helpers' as *;
+
+.slider-photo {
+    &:not(:last-child) {
+        margin-bottom: rem(50);
+
+        @include mobile {
+            margin-bottom: rem(32);
+        }
+    }
+    
+    &__container {
+        overflow: hidden;
+        width: 100%;
+        padding-inline: rem(16);
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: rem(20);
+        cursor: grab;
+
+        @include mobile-above {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas: 
+                'image-1 image-1 image-2 image-3'
+                'image-4 image-5 image-5 image-6' 
+            ;
+            cursor: default;
+        }
+    }
+
+    &__slide {
+        width: auto;
+
+        @include mobile-above {
+            &:nth-child(1) {
+                grid-area: image-1;
+            }
+
+            &:nth-child(2) {
+                grid-area: image-2;
+            }
+
+            &:nth-child(3) {
+                grid-area: image-3;
+            }
+
+            &:nth-child(4) {
+                grid-area: image-4;
+            }
+
+            &:nth-child(5) {
+                grid-area: image-5;
+            }
+
+            &:nth-child(6) {
+                grid-area: image-6;
+            }
+        }
+    }
+}

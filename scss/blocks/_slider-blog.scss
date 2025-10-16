@@ -1,0 +1,39 @@
+@use 'helpers' as *;
+
+.slider-blog {
+    &:not(:last-child) {
+        margin-bottom: rem(50);
+
+        @include mobile {
+            margin-bottom: rem(32);
+        }
+    }
+    
+    &__container {
+        overflow: hidden;
+        width: 100%;
+        padding-inline: rem(16);
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: rem(20);
+        cursor: grab;
+
+        @include mobile-above {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            cursor: default;
+        }
+    }
+
+    &__slide {
+        width: 100%;
+        max-width: rem(580);
+
+        @include mobile {
+            width: auto;
+            max-width: none;
+        }
+    }
+}

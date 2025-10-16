@@ -22,12 +22,33 @@
                 }
             }
 
-            .photo__icon {
-                @include square(rem(30));
+            .photo__button {
+                @include abs-position(both);
+                @include flexbox(true, center, center);
+                @include transition(width, height);
+
+                z-index: 20;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+        
+                @include mobile {
+                    display: none;
+                }
 
                 svg {
-                    width: rem(30);
-                    height: rem(30);
+                    @include transition(width, height);
+                }
+
+                @include hover {
+                    svg {
+                        width: rem(30);
+                        height: rem(30);
+
+                        path {
+                            stroke: var(--color-yellow);
+                        }
+                    }
                 }
             }
         }
@@ -42,30 +63,8 @@
         border-radius: rem(6);
     }
 
-    &__icon {
-        @include abs-position(both);
-        @include square(rem(24));
-        @include flexbox(true, center, center);
-        @include transition(width, height);
-
-        z-index: 20;
-        cursor: pointer;
-
-        svg {
-            @include transition(width, height);
-        }
-
-        @include hover {
-            svg {
-                path {
-                    stroke: var(--color-yellow);
-                }
-            }
-        }
-
-        @include mobile {
-            display: none;
-        }
+    &__button {
+        display: none;
     }
 
     &__link {

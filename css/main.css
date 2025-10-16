@@ -371,7 +371,7 @@ section:not(:first-child):not(:last-child) {
 .hero {
   position: relative;
   z-index: 10;
-  background: url("/img/hero/hero-bg.jpg") center/cover no-repeat;
+  background: url("../img/hero/hero-bg.jpg") center/cover no-repeat;
 }
 .hero__body {
   display: grid;

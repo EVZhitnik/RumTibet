@@ -46,12 +46,13 @@
         }
     }
     
-    &--base {
+    &--directions,
+    &--blog,
+    &--photo,
+    &--tour,
+    &--offer  {
         padding: rem(16) rem(36);
-
-        @include tablet {
-            margin: 0 auto;
-        }
+        justify-self: center;
 
         @include mobile {
             padding: rem(12) rem(24);

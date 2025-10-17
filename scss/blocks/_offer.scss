@@ -88,10 +88,6 @@
         row-gap: rem(4);
     }
 
-    &__link {
-        justify-self: start;
-    }
-
     &__photos {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

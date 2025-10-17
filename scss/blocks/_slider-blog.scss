@@ -12,12 +12,12 @@
     &__container {
         overflow: hidden;
         width: 100%;
-        padding-inline: rem(16);
     }
 
     &__wrapper {
         display: flex;
         gap: rem(20);
+        padding-inline: rem(16);
         cursor: grab;
 
         @include mobile-above {

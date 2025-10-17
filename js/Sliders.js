@@ -1,87 +1,3 @@
-// class InitSlider {
-//     constructor(selector, options) {
-//         this.selector = selector;
-//         this.options = options;
-//         this.slider = null;
-//         this.init();
-//     }
-
-//     init() {
-//         this.slider = new Swiper(this.selector, this.options);
-//         return this.slider;
-//     }
-// }
-
-// class InitSliderCollection {
-//     constructor() {
-//         this.sliders = {};
-//         this.init();
-//     }
-
-//     init() {
-//         this.sliders.directions = new InitSlider('.swiper-directions', {
-//             spaceBetween: 20,
-//             autoplay: {
-//                 delay: 3000,
-//                 disableOnInteraction: true, 
-//             },
-//             breakpoints: {
-//                 0: { 
-//                     slidesPerView: 'auto',
-//                     simulateTouch: true,
-//                 },
-//                 768: { 
-//                     slidesPerView: 3,
-//                     simulateTouch: false,
-//                 }
-//             }
-//         }).slider;
-//         this.sliders.blog = new InitSlider('.swiper-blog', {
-//             spaceBetween: 24,
-//             autoplay: {
-//                 delay: 3000,
-//                 disableOnInteraction: true, 
-//             },
-//             grid: {
-//                 rows: 2,
-//                 fill: 'row',
-//             },
-//             breakpoints: {
-//                 0: { 
-//                     slidesPerView: 'auto',
-//                     simulateTouch: true,
-//                     grid: { rows: 1 },
-//                 },
-//                 768: {     
-//                     slidesPerView: 2,
-//                     simulateTouch: false,
-//                     grid: { rows: 2 },
-//                 },
-//             },
-//         }).slider;
-//         this.sliders.photo = new InitSlider('.swiper-photo', {
-//             autoplay: {
-//                 delay: 3000,
-//                 disableOnInteraction: true, 
-//             },
-//             breakpoints: {
-//                 0: { 
-//                     enabled: true, 
-//                     slidesPerView: 'auto',
-//                     spaceBetween: 20,
-//                     simulateTouch: true,
-//                 },
-//                 768: { 
-//                     enabled: false,    
-//                 },
-//             },
-//         }).slider;
-//     }
-// }
-
-// export default InitSliderCollection;
-
-
 const rootSelector = '[data-js-slider]';
 
 class Slider {
@@ -120,13 +36,23 @@ class Slider {
 
     calcMetrics = () => {
         this.wrapperElement.style.width = '';
-        
+        this.wrapperElement.style.boxSizing = '';
+
         this.slideWidth = this.slidesElements[0].offsetWidth;
 
         const wrapperStyle = getComputedStyle(this.wrapperElement);
         const gapStr = wrapperStyle.getPropertyValue('column-gap') || wrapperStyle.getPropertyValue('gap') || '0px';
         this.gap = parseFloat(gapStr) || 0;
-        this.totalWidth = (this.slideWidth + this.gap) * this.slidesElements.length;
+
+        const padLeft = parseFloat(wrapperStyle.getPropertyValue('padding-left')) || 0;
+        const padRight = parseFloat(wrapperStyle.getPropertyValue('padding-right')) || 0;
+        this.paddingLeft = padLeft;
+        this.paddingRight = padRight;
+
+        const count = this.slidesElements.length;
+        const contentWidth = this.slideWidth * count + this.gap * Math.max(0, count - 1);
+
+        this.totalWidth = contentWidth + this.paddingLeft + this.paddingRight;
     }
 
     setupMobileSlider = () => {
@@ -153,7 +79,12 @@ class Slider {
     }
 
     updateSliderPosition = () => {
-        const translateX = -this.currentSlideIndex * (this.slideWidth + this.gap);
+        const maxTranslate = Math.max(0, this.totalWidth - this.containerElement.clientWidth);
+
+        const target = this.currentSlideIndex * (this.slideWidth + this.gap);
+        const used = Math.min(target, maxTranslate);
+
+        const translateX = -used;
         this.wrapperElement.style.transform = `translateX(${translateX}px)`;
     }
 
@@ -191,6 +122,9 @@ class Slider {
         this.isDragging = true;
 
         this.startOfTouch = event.touches[0].clientX;
+        this.endOfTouch = this.startOfTouch;
+        this.hasMoved = false;
+
         this.touchStartTime = Date.now();
         this.wrapperElement.style.transition = 'none';
         this.wrapperElement.style.cursor = 'grabbing';
@@ -206,6 +140,10 @@ class Slider {
 
         this.endOfTouch = event.touches[0].clientX;
         const diff = this.startOfTouch - this.endOfTouch;
+
+        if (Math.abs(diff) > 5) {
+            this.hasMoved = true;
+        }
 
         const currentPosition = -this.currentSlideIndex * (this.slideWidth + this.gap);
         this.wrapperElement.style.transform = `translateX(${currentPosition - diff}px)`;
@@ -228,7 +166,11 @@ class Slider {
             this.velocity = this.maxSwipeVelocity * Math.sign(this.velocity);
         }
 
-        this.handleSwipeResult(diff);
+        if (!this.hasMoved) {
+            this.updateSliderPosition();
+        } else {
+            this.handleSwipeResult(diff);
+        }
 
         setTimeout(() => {
             this.restartAutoPlay();
@@ -326,13 +268,13 @@ class Slider {
 
     addTouchEvents = () => {
         this.wrapperElement.addEventListener('touchstart', this.onTouchStart);
-        this.wrapperElement.addEventListener('touchmove', this.onTouchMove);
+        this.wrapperElement.addEventListener('touchmove', this.onTouchMove, { passive: false });
         this.wrapperElement.addEventListener('touchend', this.onTouchEnd);
     }
 
     removeTouchEvents = () => {
         this.wrapperElement.removeEventListener('touchstart', this.onTouchStart);
-        this.wrapperElement.removeEventListener('touchmove', this.onTouchMove);
+        this.wrapperElement.removeEventListener('touchmove', this.onTouchMove, { passive: false });
         this.wrapperElement.removeEventListener('touchend', this.onTouchEnd);
     }
 

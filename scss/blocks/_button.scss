@@ -1,8 +1,7 @@
 @use 'helpers' as *;
 
 .button {
-    @include flexbox(true, center, center);
-
+    display: inline-block;
     font-weight: 600;
     font-size: rem(16);
     line-height: 1.25;
@@ -45,14 +44,27 @@
             }
         }
     }
-    
-    &--directions,
-    &--blog,
-    &--photo,
-    &--tour,
-    &--offer  {
+
+    &--tour {
         padding: rem(16) rem(36);
-        justify-self: center;
+        justify-self: start;
+
+        @include mobile {
+            justify-self: center;
+        }
+    }
+
+    &--offer {
+        padding: rem(16) rem(36);
+        justify-self: start;
+
+        @include mobile {
+            justify-self: center;
+        }
+    }
+    
+    &--base {
+        padding: rem(16) rem(36);
 
         @include mobile {
             padding: rem(12) rem(24);

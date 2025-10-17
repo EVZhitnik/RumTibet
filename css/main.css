@@ -545,9 +545,7 @@ section:not(:first-child):not(:last-child) {
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.25;
@@ -606,12 +604,29 @@ section:not(:first-child):not(:last-child) {
     border: 0.0625rem solid var(--color-light);
   }
 }
-.button--directions, .button--blog, .button--photo, .button--tour, .button--offer {
+.button--tour {
   padding: 1rem 2.25rem;
-  justify-self: center;
+  justify-self: start;
 }
 @media (width <= 47.99875rem) {
-  .button--directions, .button--blog, .button--photo, .button--tour, .button--offer {
+  .button--tour {
+    justify-self: center;
+  }
+}
+.button--offer {
+  padding: 1rem 2.25rem;
+  justify-self: start;
+}
+@media (width <= 47.99875rem) {
+  .button--offer {
+    justify-self: center;
+  }
+}
+.button--base {
+  padding: 1rem 2.25rem;
+}
+@media (width <= 47.99875rem) {
+  .button--base {
     padding: 0.75rem 1.5rem;
   }
 }
@@ -1372,6 +1387,9 @@ section:not(:first-child):not(:last-child) {
     margin-bottom: 0.625rem;
   }
 }
+.directions__link-container {
+  text-align: center;
+}
 
 .slider-directions:not(:last-child) {
   margin-bottom: 3.125rem;
@@ -1384,10 +1402,10 @@ section:not(:first-child):not(:last-child) {
 .slider-directions__container {
   overflow: hidden;
   width: 100%;
-  padding-inline: 1rem;
 }
 .slider-directions__wrapper {
   display: flex;
+  padding-inline: 1rem;
   gap: 1.25rem;
   cursor: grab;
 }
@@ -1520,6 +1538,9 @@ section:not(:first-child):not(:last-child) {
   line-height: 1.43;
   color: var(--color-dark-green);
 }
+.blog__link-container {
+  text-align: center;
+}
 
 .slider-blog:not(:last-child) {
   margin-bottom: 3.125rem;
@@ -1532,11 +1553,11 @@ section:not(:first-child):not(:last-child) {
 .slider-blog__container {
   overflow: hidden;
   width: 100%;
-  padding-inline: 1rem;
 }
 .slider-blog__wrapper {
   display: flex;
   gap: 1.25rem;
+  padding-inline: 1rem;
   cursor: grab;
 }
 @media (width > 47.99875rem) {
@@ -1699,6 +1720,9 @@ section:not(:first-child):not(:last-child) {
 .photo__button {
   display: none;
 }
+.photo__link-container {
+  text-align: center;
+}
 
 .slider-photo:not(:last-child) {
   margin-bottom: 3.125rem;
@@ -1711,10 +1735,10 @@ section:not(:first-child):not(:last-child) {
 .slider-photo__container {
   overflow: hidden;
   width: 100%;
-  padding-inline: 1rem;
 }
 .slider-photo__wrapper {
   display: flex;
+  padding-inline: 1rem;
   gap: 1.25rem;
   cursor: grab;
 }
